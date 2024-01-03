@@ -1,0 +1,51 @@
+$tokens: (
+  unit: rem,
+  colors: ((
+    type: base,
+    color: #000,
+    shades: (50)
+  ), (
+    type: highlight,
+    color: #e84e0f,
+    shades: (25, 50)
+  )),
+  fonts: ((
+    type: main-text-regular,
+    uri: '../fonts/rouna-regular-webfont',
+    sizes: (20)
+  ), (
+    type: main-text-bold,
+    uri: '../fonts/rouna-bold-webfont',
+    sizes: (20)
+  ), (
+    type: menu-items,
+    uri: '../fonts/rouna-bold-webfont',
+    sizes: (120)
+  ), (
+    type: main-text-link,
+    uri: '../fonts/rouna-bold-webfont',
+    sizes: (16)
+  )),
+  headings: (
+    type: heading,
+    uri: '../fonts/rouna-bold-webfont',
+    variant: ((
+      h1: 90
+    ), (
+      h2: 58
+    ), (
+      h3: 42
+    ), (
+      h4: 32
+    ), (
+      h5: 24
+    ), (
+      h6: 22
+    ))
+  ),
+  spacing: (
+    small: 1,
+    medium: 2,
+    large: 3
+  )
+);

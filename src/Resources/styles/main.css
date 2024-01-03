@@ -1,0 +1,249 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1, h2, h3,
+h4, h5, h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/** FONTS **/
+/*! main-text-regular */
+@font-face {
+  font-family: "main-text-regular";
+  src: url("../fonts/rouna-regular-webfont.woff2") format("woff2"), url("../fonts/rouna-regular-webfont.woff") format("woff"), url("../fonts/rouna-regular-webfont.ttf") format("tff");
+}
+/*! main-text-bold */
+@font-face {
+  font-family: "main-text-bold";
+  src: url("../fonts/rouna-bold-webfont.woff2") format("woff2"), url("../fonts/rouna-bold-webfont.woff") format("woff"), url("../fonts/rouna-bold-webfont.ttf") format("tff");
+}
+/*! menu-items */
+@font-face {
+  font-family: "menu-items";
+  src: url("../fonts/rouna-bold-webfont.woff2") format("woff2"), url("../fonts/rouna-bold-webfont.woff") format("woff"), url("../fonts/rouna-bold-webfont.ttf") format("tff");
+}
+/*! main-text-link */
+@font-face {
+  font-family: "main-text-link";
+  src: url("../fonts/rouna-bold-webfont.woff2") format("woff2"), url("../fonts/rouna-bold-webfont.woff") format("woff"), url("../fonts/rouna-bold-webfont.ttf") format("tff");
+}
+/*! heading */
+@font-face {
+  font-family: "heading";
+  src: url("../fonts/rouna-bold-webfont.woff2") format("woff2"), url("../fonts/rouna-bold-webfont.woff") format("woff"), url("../fonts/rouna-bold-webfont.ttf") format("tff");
+}
+/** CUSTOM PROPERTIES **/
+:root {
+  /** COLOR **/
+  /*! Background Color */
+  /*! base */
+  --bg-base: #000;
+  --bg-base-light-50: gray;
+  --bg-base-dark-50: black;
+  /*! highlight */
+  --bg-highlight: #e84e0f;
+  --bg-highlight-light-25: #f7a280;
+  --bg-highlight-light-50: #fffaf7;
+  --bg-highlight-dark-25: #702607;
+  --bg-highlight-dark-50: black;
+  /*! Foreground Color */
+  /*! base */
+  --fg-base: #000;
+  --fg-base-light-50: gray;
+  --fg-base-dark-50: black;
+  /*! highlight */
+  --fg-highlight: #e84e0f;
+  --fg-highlight-light-25: #f7a280;
+  --fg-highlight-light-50: #fffaf7;
+  --fg-highlight-dark-25: #702607;
+  --fg-highlight-dark-50: black;
+  /** FONT **/
+  --main-text-regular: "main-text-regular";
+  --main-text-bold: "main-text-bold";
+  --menu-items: "menu-items";
+  --main-text-link: "main-text-link";
+}
+
+/** UTILITY: Colors **/
+/*! Background Color */
+/*! base */
+.bg-base {
+  background-color: var(--bg-base);
+}
+
+.bg-base-light-50 {
+  background-color: var(--bg-base-light-50);
+}
+
+.bg-base-dark-50 {
+  background-color: var(--bg-base-dark-50);
+}
+
+/*! highlight */
+.bg-highlight {
+  background-color: var(--bg-highlight);
+}
+
+.bg-highlight-light-25 {
+  background-color: var(--bg-highlight-light-25);
+}
+
+.bg-highlight-light-50 {
+  background-color: var(--bg-highlight-light-50);
+}
+
+.bg-highlight-dark-25 {
+  background-color: var(--bg-highlight-dark-25);
+}
+
+.bg-highlight-dark-50 {
+  background-color: var(--bg-highlight-dark-50);
+}
+
+/*! Foreground Color */
+/*! base */
+.fg-base {
+  color: var(--fg-base);
+}
+
+.fg-base-light-50 {
+  color: var(--fg-base-light-50);
+}
+
+.fg-base-dark-50 {
+  color: var(--fg-base-dark-50);
+}
+
+/*! highlight */
+.fg-highlight {
+  color: var(--fg-highlight);
+}
+
+.fg-highlight-light-25 {
+  color: var(--fg-highlight-light-25);
+}
+
+.fg-highlight-light-50 {
+  color: var(--fg-highlight-light-50);
+}
+
+.fg-highlight-dark-25 {
+  color: var(--fg-highlight-dark-25);
+}
+
+.fg-highlight-dark-50 {
+  color: var(--fg-highlight-dark-50);
+}
+
+.h1 {
+  font-family: "heading";
+  font-size: 5.625rem;
+}
+
+.h2 {
+  font-family: "heading";
+  font-size: 3.625rem;
+}
+
+.h3 {
+  font-family: "heading";
+  font-size: 2.625rem;
+}
+
+.h4 {
+  font-family: "heading";
+  font-size: 2rem;
+}
+
+.h5 {
+  font-family: "heading";
+  font-size: 1.5rem;
+}
+
+.h6 {
+  font-family: "heading";
+  font-size: 1.375rem;
+}
+
+/*! Atoms */
+.Label {
+  font-family: "main-text-regular", sans-serif;
+  padding: 10px;
+}
+
+.Logo .small {
+  height: 1.2rem;
+}
+.Logo .medium {
+  height: 2.4rem;
+}
+.Logo .large {
+  height: 4rem;
+}
+
+/*! Molecules */ /*! Organisms */
+
+/*# sourceMappingURL=main.css.map */

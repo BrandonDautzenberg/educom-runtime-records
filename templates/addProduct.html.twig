@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomepageController!{% endblock %}
+
+{% block body %}
+<form action="/action_page.php">
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title"><br>
+
+  <label for="artist">Artist:</label><br>
+  <input type="text" id="artist" name="artist"><br>
+
+  <label for="price">Price:</label><br>
+  <input type="text" id="price" name="price"><br>
+
+  <label for="genre">Genre:</label><br>
+  <input type="text" id="genre" name="genre"><br>
+
+  <label for="cover">Cover:</label><br>
+  <input type="text" id="cover" name="cover"><br>
+
+  <label for="description">Description:</label><br>
+  <input type="text" id="description" name="description"><br>
+
+  <label for="description">Format:</label><br>
+  <input type="text" id="format" name="format"><br>
+
+  <label for="description">Stock:</label><br>
+  <input type="text" id="stock" name="stock"><br><br>
+
+  <input type="submit" value="Submit">
+</form> 
+{% endblock %}

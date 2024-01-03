@@ -1,0 +1,16 @@
+/** FONTS **/
+@each $entry in $fonts {
+    $type: map-get($entry, "type");
+    $uri: map-get($entry, "uri");
+    /*! #{$type} */
+    @font-face {
+      font-family: '#{$type}';
+      src:
+         url( $uri + ".woff2") format('woff2'),
+         url( $uri + ".woff")  format('woff'),
+         url( $uri + ".ttf")  format('tff'),
+      ;
+    }
+}
+
+

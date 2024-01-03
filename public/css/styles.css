@@ -1,0 +1,10 @@
+.container {
+    align-items: center; 
+    float: left;
+}
+
+.album {
+    float: left;
+    height: 350px;
+    padding: 10px;
+}

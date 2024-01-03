@@ -1,0 +1,11 @@
+$h_type: map-get($headings, 'type');
+$h_uri: map-get($headings, 'uri');
+/*! heading */
+@font-face {
+   font-family: '#{$h_type}';
+   src:
+          url( $h_uri + ".woff2") format('woff2'),
+          url( $h_uri + ".woff")  format('woff'),
+          url( $h_uri + ".ttf")  format('tff'),
+  ;
+}

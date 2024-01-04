@@ -36,7 +36,7 @@ class Product
     private ?string $format = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $state = null;
+    private ?int $inventory = null;
 
     public function getId(): ?int
     {
@@ -127,14 +127,14 @@ class Product
         return $this;
     }
 
-    public function getState(): ?string
+    public function getInventory(): ?int
     {
-        return $this->state;
+        return $this->inventory;
     }
 
-    public function setState(string $state): static
+    public function setInventory(int $inventory): static
     {
-        $this->state = $state;
+        $this->inventory = $inventory;
 
         return $this;
     }

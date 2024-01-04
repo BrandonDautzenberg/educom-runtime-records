@@ -42,7 +42,7 @@ class HomepageController extends AbstractController
         ]);
     }
 
-    #[Route('/addProduct', name: 'shoppingcart')]
+    #[Route('/addProduct', name: 'stock')]
     public function showForm(): Response 
     {
         return $this->render('addProduct.html.twig', [

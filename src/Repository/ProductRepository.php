@@ -40,7 +40,7 @@ class ProductRepository extends ServiceEntityRepository
         $product->setCover($params["cover"]);
         $product->setDescription($params["description"]);
         $product->setFormat($params["format"]);
-        $product->setState($params["state"]);
+        $product->setInventory($params["state"]);
 
         $this->_em->persist($product);
         $this->_em->flush();

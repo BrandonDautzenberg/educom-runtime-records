@@ -1,10 +1,47 @@
+@font-face {
+    font-family: "rouna-bold";
+    src: url(/css/fonts/rouna-bold-webfont.woff);
+}
+
+@font-face {
+    font-family: "rouna-regular";
+    src: url(/css/fonts/rouna-regular-webfont.woff);
+}
+
 .container {
     align-items: center; 
     float: left;
 }
 
+.disc {
+    height: 60px;
+}
+
+.logo {
+    height: 60px;
+}
+
+.backdrop {
+    width: 1670px;
+}
+
 .album {
     float: left;
-    height: 350px;
-    padding: 10px;
+    height: 320px;
+    margin: 14px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.album-title {
+    font-family: "rouna-bold";
+}
+
+.artist {
+    font-family: "rouna-regular";
+}
+
+.footer-image {
+    float: right;
+    padding: 20px;
+    height: 150px;
 }

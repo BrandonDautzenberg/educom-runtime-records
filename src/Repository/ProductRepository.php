@@ -49,7 +49,7 @@ class ProductRepository extends ServiceEntityRepository
     }
 
     public function buyProduct($id) {
-        
+
     }
 
 //    /**

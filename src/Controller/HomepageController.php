@@ -42,11 +42,14 @@ class HomepageController extends AbstractController
         ]);
     }
 
-    #[Route('/addProduct', name: 'stock')]
-    public function showForm(): Response 
-    {
-        return $this->render('addProduct.html.twig', [
-            'controller_name' => 'HomepageController'
-        ]);
-    }
+//     #[Route('/addProduct', name: 'stock')]
+//     public function showForm(): Response 
+//     {
+        
+
+//         return $this->render('addProduct.html.twig', [
+//             'controller_name' => 'HomepageController',
+//         ]);
+//     }
+// }
 }

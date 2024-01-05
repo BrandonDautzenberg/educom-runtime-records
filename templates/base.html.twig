@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <link rel="stylesheet" href="/css/styles.css">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		<link rel="stylesheet" href="/css/styles.css">
 
-        {% block javascripts %}
-{% block importmap %}{{ importmap('app') }}{% endblock %}
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body>
+		{% block header %}
+			<div class="row">
+				<div class="col-md-12">
+					<img class="disc" src="/disc-payoff.svg">
+					<a href="{{ path('homepage')}}"><img class="logo" src="/runtime-records-logo.svg"></a>
+                    <a href="{{ path('app_login')}}"><button type="button">Login</button></a>
+                    <a href="{{ path('app_register')}}"><button type="button">Register</button></a>
+					<a href="{{ path('stock')}}"><button type="button">Add Product</button></a>
+                    <a href="{{ path('shoppingcart') }}"><img class="shopping-cart" src="/shopping-cart.png"></a>
+				</div>
+			</div>
+		{% endblock %}
+
+		{% block body %}{% endblock %}
+
+		{% block footer %}
+		<div class="row" style="background-color: black; display: flex; justify-content: right;">
+			<div class="col-md-12" style="background-color:black;">
+				<img class="footer-image" src="/record-store-day.svg">
+			</div>
+		</div>
         {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+
+	</body>
 </html>

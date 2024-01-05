@@ -5,26 +5,28 @@ Runtime Records
 {% endblock %}
 
 {% block body %}
-
 	<div class="container-fluid">
-	{% block header %}
-	{% endblock %}
-		<div class="row">
-			<div class="col-md-12">
-				<img class="disc" src="/disc-payoff.svg">
-				<img class="logo" src="/runtime-records-logo.svg">
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<img class="backdrop" src="/runtime-records-backdrop.jpg">
 			</div>
 		</div>
 		<div class="row" style="display: flex; justify-content: center;">
-			{% for product in products %}
-				<div class="col-md-3">
+			{% for product in products[0:4] %}
+				<div class="col-md-4">
+					<span class="text-span">{{product.price}}</span>
 					<img class="album" src="{{ product.cover}}">
-					<p class="album-title">{{ product.title }}</p>
+					<p class="album-title clear">{{ product.title }}</p>
+					<p class="artist">{{ product.artist }}</p>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="row" style="display: flex; justify-content: center;">
+			{% for product in products[4:4] %}
+				<div class="col-md-4">
+					<span class="text-span">{{product.price}}</span>
+					<img class="album" src="{{ product.cover }}">	
+					<p class="album-title clear">{{ product.title }}</p>
 					<p class="artist">{{ product.artist }}</p>
 				</div>
 			{% endfor %}
@@ -40,9 +42,5 @@ Runtime Records
 		<div class="col-md-3"></div>
 		<div class="col-md-3"></div>
 	</div>
-	<div class="row" style="background-color: black; display: flex; justify-content: right;">
-		<div class="col-md-12" style="background-color:black;">
-		<img class="footer-image" src="/record-store-day.svg">
-		</div>
-	</div>
-</div></div>{% endblock %}
+</div></div>
+{% endblock %}

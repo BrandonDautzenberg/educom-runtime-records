@@ -8,14 +8,16 @@ Runtime Records
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<img class="backdrop" src="/runtime-records-backdrop.jpg">
+			<div class="backdrop-box">
+			<div class="centered-div">
+			</div><br>
 			</div>
 		</div>
 		<div class="row" style="display: flex; justify-content: center;">
 			{% for product in products[0:4] %}
 				<div class="col-md-4">
 					<span class="text-span">{{product.price}}</span>
-					<img class="album" src="{{ product.cover}}">
+					<a href="{{path('detail', {'slug': product.title })}}"><img class="album" src="{{ product.cover}}"></a>
 					<p class="album-title clear">{{ product.title }}</p>
 					<p class="artist">{{ product.artist }}</p>
 				</div>

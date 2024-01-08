@@ -21,6 +21,18 @@
     height: 60px;
 }
 
+.backdrop-box {
+    height: 700px;
+    background-image: url(../runtime-records-backdrop.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
 .backdrop {
     width: 1670px;
 }
@@ -73,3 +85,13 @@ p.clear {
 .shopping-cart {
     height: 60px;
 }
+
+.centered-div {
+    width: 80%;
+    height: 340px;
+    margin: 10px;
+    padding: 5px;
+    background: blue;
+    color: white;
+ }
+

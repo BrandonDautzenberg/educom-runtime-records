@@ -22,15 +22,18 @@ class HomepageController extends AbstractController
         $data = $rep->getAllProducts();
 
         return $this->render('index.html.twig', [
-            'controller_name' => 'HomepageController', 'products' => $data
+            'controller_name' => 'HomepageController', 'products' => $data,
         ]);
     }
 
-    #[Route('/detail', name: 'detail')]    
-    public function showDetailPage(): Response
+    #[Route('/browse/{slug}', name: 'detail')]    
+    public function showDetailPage(EntityManagerInterface $em, string $slug): Response
+
     {
+        $rep = $em->getRepository(Product::class);
         return $this->render('detail.html.twig', [
             'controller_name' => 'HomepageController',
+            'product' => $rep->findOneBy(array('title' => $slug))
         ]);
     }
 

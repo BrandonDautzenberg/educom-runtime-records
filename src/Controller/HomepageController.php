@@ -20,9 +20,12 @@ class HomepageController extends AbstractController
     {
         $rep = $em->getRepository(Product::class);
         $data = $rep->getAllProducts();
+        $randomData = $data;
+        shuffle($randomData);
 
         return $this->render('index.html.twig', [
             'controller_name' => 'HomepageController', 'products' => $data,
+            'randomProduct' => $randomData[0],
         ]);
     }
 

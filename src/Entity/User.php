@@ -30,6 +30,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $searchCriteria = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -65,6 +68,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
+                   'ROLE_ADMIN';
 
         return array_unique($roles);
     }
@@ -98,5 +102,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getSearchCriteria(): ?string
+    {
+        return $this->searchCriteria;
+    }
+
+    public function setSearchCriteria(string $searchCriteria): static
+    {
+        $this->searchCriteria = $searchCriteria;
+
+        return $this;
     }
 }

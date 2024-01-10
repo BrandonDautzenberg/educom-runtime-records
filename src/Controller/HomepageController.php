@@ -59,7 +59,6 @@ class HomepageController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $searchCriteria = $form->getData();
-
             $rep->saveSearchCriteria($searchCriteria);
 
             return $this->redirectToRoute('homepage');

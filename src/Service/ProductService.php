@@ -4,8 +4,10 @@ namespace App\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Product;
+use App\Entity\User;
 
 use App\Repository\ProductRepository;
+use App\Repository\UserRepository;
 
 class ProductService {
     private $ProductRepository;
@@ -17,6 +19,10 @@ class ProductService {
 
     public function fetchProduct($id) {
         return($this->ProductRepository->fetchProduct($id));
+    }
+
+    public function addToCart($product) {
+
     }
 }
 

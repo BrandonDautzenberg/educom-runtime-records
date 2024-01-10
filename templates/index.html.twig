@@ -29,7 +29,7 @@ Runtime Records
 </form>
 
 	<!-- IF NO USER IS LOGGED IN, RETURN A DISPLAY OF RANDOM PRODUCTS -->
-	{% if currentUser == null %}
+	{% if currentUser == null or currentUser.searchCriteria == 'null' %}
 		<div class="row" style="display: flex; justify-content: center;">
 			{% for product in products[0:4] %}
 				<div class="col-md-4">

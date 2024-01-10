@@ -12,7 +12,7 @@ class SearchCriteriaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('search_criteria', TextType::class)
+            ->add('search_criteria', TextType::class, ['required' => false, 'empty_data' => 'null'])
             ->add('save', SubmitType::class);
     }
 }

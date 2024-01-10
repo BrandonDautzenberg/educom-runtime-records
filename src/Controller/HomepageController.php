@@ -22,16 +22,18 @@ class HomepageController extends AbstractController
 
         $repProduct = $em->getRepository(Product::class);
         $data = $repProduct->getAllProducts();
+
         $randomData = $repProduct->shuffleAllProducts();
 
         $repUser = $em->getRepository(User::class);
         $currentCriteriaArray = $repUser->searchCriteriaToArray($currentUser);
 
         return $this->render('index.html.twig', [
-            'controller_name' => 'HomepageController', 'products' => $data,
+            'controller_name' => 'HomepageController', 
+            'products' => $data,
             'randomProduct' => $randomData[0], 
             'currentCriteria' => $currentCriteriaArray,
-            'currentUser' => $currentUser,   
+            'currentUser' => $currentUser,
         ]);
     }
 
@@ -48,11 +50,11 @@ class HomepageController extends AbstractController
     #[Route('/accountSettings', name: 'account_settings')]
     public function showAccountSettings(Request $request, EntityManagerInterface $em): Response 
     {
-       
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
 
         $rep = $em->getRepository(User::class);
         $currentUser = $this->getUser();
+        
         $currentCriteria = $propertyAccessor->getValue($currentUser, 'search_criteria');
 
         $form = $this->createForm(SearchCriteriaType::class, $currentUser);

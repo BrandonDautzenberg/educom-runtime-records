@@ -22,6 +22,7 @@ class ProductType extends AbstractType
             ->add('description', TextType::class)
             ->add('format', TextType::class)
             ->add('description', TextType::class)
+            ->add('inventory', TextType::class)
             ->add('save', SubmitType::class)
         ;
     }

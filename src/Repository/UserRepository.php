@@ -9,6 +9,8 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
+use Symfony\Component\PropertyAccess\PropertyAccess;
+
 /**
  * @extends ServiceEntityRepository<User>
 * @implements PasswordUpgraderInterface<User>
@@ -37,6 +39,25 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newHashedPassword);
         $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
+    }
+
+    public function saveSearchCriteria($newCriteria) {
+        $this->_em->persist($newCriteria);
+        $this->_em->flush();
+        return ($newCriteria);
+    }
+
+    public function searchCriteriaToArray($currentUser) {
+        if ($currentUser) {
+        $propertyAccessor = PropertyAccess::createPropertyAccessor();
+        $currentCriteria = $propertyAccessor->getValue($currentUser, 'search_criteria');
+        $currentCriteria = strToUpper($currentCriteria);
+        $currentCriteriaArray = explode(',',$currentCriteria);
+            return ($currentCriteriaArray);
+        }
+        else {
+            return(null);
+        };
     }
 
 //    /**

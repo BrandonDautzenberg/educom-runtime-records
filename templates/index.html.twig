@@ -10,13 +10,14 @@ Runtime Records
 			<div class="col-md-12">
 				<div class="backdrop-box">
 					<div class="centered-div">
+						<span class="text-span random-album-price">{{randomProduct.price}}</span>
 						<img class="album-display" src={{randomProduct.cover}}>
 						<div class="album-display-font-artist">{{ randomProduct.artist }}</div>
 						<div class="album-display-font-title">{{ randomProduct.title }}</div>
 						<div class="album-display-description">{{ randomProduct.description }}</div>
 						<div class="album-display-genre-description">{{ randomProduct.genre }}</div><br>
 						<img class="arrow" src="right-arrow.svg">
-						<button class="album-display-read-more">Read More</button>
+						<a href="{{path('detail', {'slug': randomProduct.title })}}"><button class="album-display-read-more">Read More</button></a>
 					</div>
 				</div>
 			</div>
@@ -27,6 +28,8 @@ Runtime Records
   <button>Search</button>
 </form>
 
+	<!-- IF NO USER IS LOGGED IN, RETURN A DISPLAY OF RANDOM PRODUCTS -->
+	{% if currentUser == null %}
 		<div class="row" style="display: flex; justify-content: center;">
 			{% for product in products[0:4] %}
 				<div class="col-md-4">
@@ -49,6 +52,22 @@ Runtime Records
 				</div>
 			{% endfor %}
 		</div>
+
+	<!-- IF USER IS LOGGED IN, RETURN A DISPLAY OF PRODUCTS IN ACCORDANCE WITH SEARCH CRITERIA -->
+	{% else %}
+		<div class="row" style="display: flex; justify-content: center;">
+		{% for product in products %}
+			{% if product.genre|upper in currentCriteria %}
+				<div class="col-md-4">
+					<span class="text-span">{{product.price}}</span>
+					<a href="{{path('detail', {'slug': product.title })}}"><img class="album" src="{{ product.cover}}"></a>
+					<div class="album-genre">{{product.genre}}</div>
+					<p class="album-title clear">{{ product.title }}</p>
+					<p class="artist">{{ product.artist }}</p>
+				</div>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
 	</div>
 </div></div>
 {% endblock %}

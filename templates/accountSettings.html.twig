@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<h1>Account Settings</h1>
+Current Search Criteria:
+
+{{ currentCriteria }}
+
+<br><br>
+
+Add new Search Criteria
+
+{{ form(form) }}
+{% endblock %}

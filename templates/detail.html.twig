@@ -8,8 +8,9 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-{{ product.title }}
+{{ product.title }}<br>
 <img class='album' src={{ product.cover}}>
+{{ product.description }}<br>
 <button class="btn btn-warning">Add to Cart</button>
 
 {% endblock %}

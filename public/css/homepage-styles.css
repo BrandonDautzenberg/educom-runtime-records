@@ -168,3 +168,8 @@ p.clear {
     position: relative;
  }
 
+ .random-album-price {
+    float: right;
+ }
+
+

@@ -24,26 +24,11 @@ class ProductRepository extends ServiceEntityRepository
         return ($this->findAll());
     }
 
-    public function saveProduct($params) {
-        if(isset($params["id"]) && $params["id"] != "") {
-            $product = $this->find($params["id"]);
-        } else {
-            $product = new Product();
-        }
-        
-        $product->setTitle($params["title"]);
-        $product->setArtist($params["artist"]);
-        $product->setPrice($params["price"]);
-        $product->setGenre($params["genre"]);
-        $product->setCover($params["cover"]);
-        $product->setDescription($params["description"]);
-        $product->setFormat($params["format"]);
-        $product->setInventory($params["state"]);
-
-        $this->_em->persist($product);
-        $this->_em->flush();
-
-        return($product);
+    public function shuffleAllProducts() {
+        $data = $this->getAllProducts();
+        $randomData = $data;
+        shuffle($randomData);
+        return ($randomData);
     }
 
     public function buyProduct($id) {

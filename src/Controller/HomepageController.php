@@ -54,17 +54,25 @@ class HomepageController extends AbstractController
 
         $rep = $em->getRepository(User::class);
         $currentUser = $this->getUser();
+        $form = $this->createForm(SearchCriteriaType::class, $currentUser);
         
+        if ($currentUser == null) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        if ($currentUser != null) {
         $currentCriteria = $propertyAccessor->getValue($currentUser, 'search_criteria');
 
-        $form = $this->createForm(SearchCriteriaType::class, $currentUser);
+        
+        // $form = $this->createForm(SearchCriteriaType::class, $currentUser);
+        
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $searchCriteria = $form->getData();
             $rep->saveSearchCriteria($searchCriteria);
 
             return $this->redirectToRoute('homepage');
-        }
+        }}
         return $this->render('accountSettings.html.twig', [
             'controller_name' => 'HomepageController',
             'form' => $form,

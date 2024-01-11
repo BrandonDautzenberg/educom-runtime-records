@@ -10,9 +10,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AddProductController extends AbstractController
+class ProductController extends AbstractController
 {
-    #[Route('/addProduct', name: 'stock')]
+    #[Route('/addProductToDatabase', name: 'stock')]
     public function new(Request $request, EntityManagerInterface $em): Response
     {
         $product = new Product();
@@ -28,7 +28,7 @@ class AddProductController extends AbstractController
             return $this->redirectToRoute('homepage');
         }
         
-        return $this->render('addProduct.html.twig', [
+        return $this->render('addProductToDatabase.html.twig', [
             'form' => $form,
         ]);
     }

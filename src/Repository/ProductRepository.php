@@ -21,6 +21,10 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    public function fetchProduct($id) {
+        return ($this->find($id));
+    }
+
     public function getAllProducts() {
         return ($this->findAll());
     }

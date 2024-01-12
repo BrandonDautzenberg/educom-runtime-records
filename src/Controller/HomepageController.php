@@ -60,12 +60,9 @@ class HomepageController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        if ($currentUser != null) {
+        else {
         $currentCriteria = $propertyAccessor->getValue($currentUser, 'search_criteria');
 
-        
-        // $form = $this->createForm(SearchCriteriaType::class, $currentUser);
-        
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $searchCriteria = $form->getData();
@@ -73,6 +70,7 @@ class HomepageController extends AbstractController
 
             return $this->redirectToRoute('homepage');
         }}
+
         return $this->render('accountSettings.html.twig', [
             'controller_name' => 'HomepageController',
             'form' => $form,

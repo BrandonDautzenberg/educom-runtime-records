@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Form\AddProductForm\ProductType;
+use App\Service\ProductService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,6 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends AbstractController
 {
+    private $ps; 
+
+    public function __construct(ProductService $ps) {
+        $this->ps = $ps;      
+    }
+
     #[Route('/addProductToDatabase', name: 'stock')]
     public function new(Request $request, EntityManagerInterface $em): Response
     {
@@ -31,5 +38,12 @@ class ProductController extends AbstractController
         return $this->render('addProductToDatabase.html.twig', [
             'form' => $form,
         ]);
+    }
+
+    #[Route('/fetchProduct', name: 'product_save')] 
+    public function fetchProduct() {
+
+        $data = $this->ps->fetchProduct(1);
+        dd($data);
     }
 }
